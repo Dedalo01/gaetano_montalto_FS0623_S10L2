@@ -1,6 +1,7 @@
 import CommentsList from "./CommentsList";
 import AddComment from "./AddComment";
 import { useEffect, useState } from "react";
+import { STRIVESCHOOL_APIKEY } from "../data/api_keys";
 
 const CommentArea = ({ bookId }) => {
   const [comments, setComments] = useState([]);
@@ -8,8 +9,7 @@ const CommentArea = ({ bookId }) => {
   const getComments = () => {
     fetch("https://striveschool-api.herokuapp.com/api/comments/" + bookId, {
       headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTljMjljZGUwZGQxZDAwMTgyZDE4YjQiLCJpYXQiOjE3MDQ3MzMxMzMsImV4cCI6MTcwNTk0MjczM30.iQcrWjbTsWpnknSarl5aGt0OIZdVmCV9H_Zgypx-EKE",
+        Authorization: "Bearer " + STRIVESCHOOL_APIKEY,
       },
     })
       .then((res) => {

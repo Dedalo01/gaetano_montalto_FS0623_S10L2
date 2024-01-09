@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { STRIVESCHOOL_APIKEY } from "../data/api_keys";
 
 const AddComment = ({ bookId, aggiornaCommenti }) => {
   const [commentObject, setCommentObject] = useState({
     comment: "",
-    rate: "1",
+    rate: 1,
     elementId: bookId,
   });
 
@@ -15,12 +16,11 @@ const AddComment = ({ bookId, aggiornaCommenti }) => {
         "https://striveschool-api.herokuapp.com/api/comments",
         {
           method: "POST",
+          body: JSON.stringify({ ...commentObject, elementId: bookId }),
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTljMjljZGUwZGQxZDAwMTgyZDE4YjQiLCJpYXQiOjE3MDQ3MzMxMzMsImV4cCI6MTcwNTk0MjczM30.iQcrWjbTsWpnknSarl5aGt0OIZdVmCV9H_Zgypx-EKE",
             "Content-Type": "application/json",
+            Authorization: "Bearer " + STRIVESCHOOL_APIKEY,
           },
-          body: JSON.stringify(commentObject),
         }
       );
       if (response.ok) {
