@@ -15,7 +15,7 @@ function App() {
       <MyNav />
       <Container>
         <Welcome />
-        {/* <AllTheBooks /> */}
+
         <BookList books={fantasy} />
       </Container>
       <MyFooter />

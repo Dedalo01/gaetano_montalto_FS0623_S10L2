@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with this simple App
 
-This project requires the use of react-bootstrap
+This project requires the use of react-bootstrap, use `npm i` to install everything you need on your local machine.
 
 ## Available Scripts
 
